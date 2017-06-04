@@ -8,7 +8,11 @@ var firebase = require("firebase");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render("index", {});
+
+  
 });
+
+
 
 router.get('/hi', function(req, res, next) {
   var payload = {
@@ -29,11 +33,22 @@ router.post("/hi", function(req, res, next) {
 
 
 
+// Save user Data
 function writeUserData(userId, name) {
   firebase.database().ref('users/' + userId).set({
     username: name
   });
 }
 
+
+// Twilip API
+client.messages.create({
+    to: "+15558675309",
+    from: "+15017250604",
+    body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+    mediaUrl: "https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg",
+}, function(err, message) {
+    console.log(message.sid);
+});
 
 module.exports = router;
