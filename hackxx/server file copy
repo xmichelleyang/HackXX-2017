@@ -1,0 +1,9 @@
+import webapp2
+
+class hello(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('yval[], time[]')
+
+app2 = webapp2.WSGIApplication([
+    ('/', hello),
+], debug=True)
