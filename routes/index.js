@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var firebase = require("firebase");
+var Chart = require('chart.js');
 
-
-
+exports.index = function(req,res){
+  res.render('index', {Chart: Chart});
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render("index", {});
 
-  
+
 });
 
 
@@ -41,6 +43,10 @@ function writeUserData(userId, name) {
 }
 
 
+
+
+/*
+
 // Twilip API
 client.messages.create({
     to: "+15558675309",
@@ -50,5 +56,6 @@ client.messages.create({
 }, function(err, message) {
     console.log(message.sid);
 });
+*/
 
 module.exports = router;
